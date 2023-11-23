@@ -1,0 +1,19 @@
+
+.hero {
+    height: 100vh;
+
+    
+}
+
+.intro {
+    width: 100vh;
+    background-color: rgb(74, 3, 80);
+    text-align: left;
+    
+
+}
+
+.title {
+    font-size: 5rem;
+    color: #d9d9d9;
+}
