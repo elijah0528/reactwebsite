@@ -32,17 +32,6 @@ const textVariants = {
     },
   };
   
-  const buttonVariants = {
-    initial: {
-      opacity: 0,
-    },
-    animate: {
-      opacity: 1,
-      transition: {
-        duration: 1,
-      },
-    },
-  };
 const Hero = () => {
     return(
         <div className="hero">
