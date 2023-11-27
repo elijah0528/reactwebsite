@@ -1,31 +1,31 @@
-.navbar {
+.navbar{
+    background-color: #424242;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-    height: 10vh;
+    height: 100px;
     width: 100%;
-    background-color: rgb(73, 73, 73);
-    color: rgb(255, 255, 255);
-    flex-direction: row;
     position: fixed;
     top: 0;
     left: 0;
+    padding: 1rem;
+    z-index: 1;
 }
+
 .name {
-    margin-right:5rem;
-    font-weight: bold;
+    color: whitesmoke;
+    font-size: 3rem;
+    padding-left: 0;
+    
 }
-.links{
+
+.links {
     display: flex;
-    align-items: end;
-    justify-content: flex-end;
-    padding: 0rem; 
-
-    text-decoration: inherit;
-    font-size: 32px; 
+    flex-direction: row;
+    font-size: 2rem;
+    padding: 0 1rem;
 }
 
+p{
+    padding: 0 1rem;
+}
