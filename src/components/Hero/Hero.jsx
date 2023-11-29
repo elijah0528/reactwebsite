@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 
 const textVariants = {
     initial: {
-      x: -500,
       opacity: 0,
     },
     animate: {
@@ -31,6 +30,7 @@ const Hero = () => {
     function resetAge () {
         setState(0)
     }
+
 
     return(
         <div className="hero">
