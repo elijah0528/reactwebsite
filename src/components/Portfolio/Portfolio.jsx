@@ -2,6 +2,7 @@ import './Portfolio.css';
 import React, { useState, useEffect } from 'react';
 
 const Portfolio = () => {
+    const [resourceType, setResourceType] = useState('posts')
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
     const [color, setColor] = useState("blue")
     const handleResize = () => {
