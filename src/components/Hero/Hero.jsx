@@ -38,7 +38,7 @@ const Hero = () => {
                 <div className="intro">
                     <div className="title">
                         
-                        <h1>Elijah Kurien - Age: <span>{state}</span></h1>
+                        <h1>Elijah Kurien <span>{state}</span></h1>
                     </div>
                     <motion.div variants={textVariants} initial = "initial" animate = "animate" className="buttons">
                         <motion.button variants={textVariants} onClick={decrementAge}>

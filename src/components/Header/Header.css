@@ -1,4 +1,4 @@
-.hero {
+.mainpage {
     font-family: Verdana,Geneva,sans-serif; 
 
     display: flex;
@@ -12,21 +12,14 @@
     justify-content: space;
 }
 
-.title {
-    align-items: center;
-    justify-content: center;
-}
-
-.buttons {
+.titlebox{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+    margin-left: 4rem;
 }
 
-button {
-    border: 1px solid white;
-    border-radius: 10px;
-    background-color: transparent;
-
-    margin: 5px 10px;
-
+.title {
+    font-size: 4rem;
 }
