@@ -1,44 +1,35 @@
 import "./Header.css";
-import React, { useState } from 'react';
-import { easeInOut, motion } from 'framer-motion';
-const variants = {
-    initial: {
-        opacity: 0,
-        x: -500,
+import React, { useState, useMemo } from 'react';
 
-    },
-    animate: {
-        opacity: 1,
-        x:50,
-        scale:1.2,
-        transition: {
-            duration: 1,
-            staggerChildren: 0.5,
-        }
-    },
-};
+
 
 const Header = () => {
+
+    const [number, SetNumber] = useState(0);
+    const doubleNumber = useMemo(() => { 
+        return slowfunction(number)},[number]);
+    const [dark, setDark] = useState();
+    const themeStyles = {
+        backgroundColor: dark ? 'black' : 'white',
+        color: dark? 'white' : 'black'
+    }
+
     return (
         <div>
             <div className="mainpage">
-                <motion.div variants={variants} initial= "initial" animate= "animate" className="titlebox">
-                    <motion.div variants={variants} className="title">
-                        Barely
-                    </motion.div>
-                    <motion.div variants={variants} className="title">
-                        Operational
-                    </motion.div>
-                    <motion.div variants={variants} className="title">
-                        Autonomous
-                    </motion.div>
-                    <motion.div variants={variants} className="title">
-                        Tank Test
-                    </motion.div>
-                </motion.div>
+                <input type = "number" value={number} onChange={e => SetNumber(parseInt(e.target.value))}/>
+                <button onClick={() => setDark(prevDark => !prevDark)}>Change Theme</button>
+                <div style={themeStyles}>{doubleNumber}</div>
+
+
             </div>
         </div>
     )
+}
+
+function slowfunction(num){
+    for (let i = 0; i < 100000000; i++){}
+    return num * 2
 }
 
 export default Header
