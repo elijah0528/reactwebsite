@@ -1,25 +1,31 @@
 import "./Header.css";
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 
 
 
 const Header = () => {
 
     const [number, SetNumber] = useState(0);
-    const doubleNumber = useMemo(() => { 
-        return slowfunction(number)},[number]);
     const [dark, setDark] = useState();
+    const doubleNumber = useMemo(() => { 
+        return slowfunction(number)
+    },[dark]);
+
     const themeStyles = {
         backgroundColor: dark ? 'black' : 'white',
         color: dark? 'white' : 'black'
     }
-
+    const rendered = useRef(1)
+    useEffect(() => {
+         rendered.current = rendered.current + 1
+    })
     return (
         <div>
             <div className="mainpage">
                 <input type = "number" value={number} onChange={e => SetNumber(parseInt(e.target.value))}/>
                 <button onClick={() => setDark(prevDark => !prevDark)}>Change Theme</button>
                 <div style={themeStyles}>{doubleNumber}</div>
+                <div>I rendered {rendered.current} times</div>
 
 
             </div>
