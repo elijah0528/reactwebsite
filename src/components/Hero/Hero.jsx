@@ -2,55 +2,38 @@ import "./Hero.css";
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const textVariants = {
-    initial: {
-      opacity: 0,
-    },
-    animate: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 1,
-        staggerChildren: 0.1,
-      },
-    },
-  };
-  
 const Hero = () => {
 
-    const [state, setState] = useState(18)
+    const [item, setItem] = useState('');
+    const [todos, settodos] = useState([])
 
+    function handleSubmit () {
+        if (item.trim()){
+            settodos([...todos, item.trim()]);
+            setItem('')
+        }
+    }
 
-    function decrementAge () {
-        setState(prevState => prevState - 1)
+    function handleDelete(index){
+        settodos(todos.filter((_, i) => i !== index))
     }
-    function incrementAge () {
-        setState(prevState => prevState + 1)
-    }
-    function resetAge () {
-        setState(0)
-    }
+ 
 
 
     return(
         <div className="hero">
             <div>
                 <div className="intro">
-                    <div className="title">
-                        
-                        <h1>Elijah Kurien <span>{state}</span></h1>
-                    </div>
-                    <motion.div variants={textVariants} initial = "initial" animate = "animate" className="buttons">
-                        <motion.button variants={textVariants} onClick={decrementAge}>
-                            -
-                        </motion.button>
-                        <motion.button variants={textVariants} onClick={incrementAge}>
-                            +
-                        </motion.button>
-                        <motion.button variants={textVariants} onClick={resetAge}>
-                            Reset
-                        </motion.button>
-                    </motion.div>
+                    <input type="text" onChange={e => setItem(e.target.value)}/>
+                    <button onClick={handleSubmit}>Add Todo</button>
+                    <ul>
+                        {todos.map((todo,index) => (
+                            <li key={index}>
+                                {todo}
+                                <button onClick={() => handleDelete(index)}></button>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </div>
