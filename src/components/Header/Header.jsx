@@ -15,10 +15,15 @@ const Header = () => {
         backgroundColor: dark ? 'black' : 'white',
         color: dark? 'white' : 'black'
     }
-    const rendered = useRef(1)
+    const [bgColor, setbgColor] = useState('');
+    function colorChangeHandler (e){
+        setbgColor(e.target.value);
+    }
+    const rendered = useRef(1);
     useEffect(() => {
          rendered.current = rendered.current + 1
     })
+
     return (
         <div>
             <div className="mainpage">
@@ -28,6 +33,13 @@ const Header = () => {
                 <div>I rendered {rendered.current} times</div>
 
 
+            </div>
+            <div style={{backgroundColor: bgColor}} >
+                <select onChange={colorChangeHandler}>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                </select>
             </div>
         </div>
     )
